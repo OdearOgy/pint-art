@@ -3,12 +3,16 @@ import { vars } from '../../styles/theme.css'
 import { SpaceToken } from '../../styles/types'
 import { StackStyles } from './index.css'
 
-const Stack: FunctionComponent<
-  PropsWithChildren<{
-    className?: string
-    space?: SpaceToken
-  }>
-> = ({ children, className, space }) => {
+interface StackProps {
+  className?: string
+  space?: SpaceToken
+}
+
+const Stack: FunctionComponent<PropsWithChildren<StackProps>> = ({
+  children,
+  className,
+  space,
+}) => {
   return (
     <div
       className={`${StackStyles} ${className}`}

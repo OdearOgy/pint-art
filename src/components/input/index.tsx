@@ -3,7 +3,7 @@ import { FunctionComponent } from 'react'
 import Stack from '../stack'
 import { FieldInputStyles, FieldLabelStyles, FieldStyles } from './index.css'
 
-type InputProps = {
+interface InputProps {
   label?: string
   name: string
   onBlur?: () => void

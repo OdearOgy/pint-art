@@ -3,13 +3,18 @@ import { vars } from '../../styles/theme.css'
 import { SpaceToken } from '../../styles/types'
 import { ClusterStyles } from './index.css'
 
-const Cluster: FunctionComponent<
-  PropsWithChildren<{
-    className?: string
-    onClick?: () => void
-    space?: SpaceToken
-  }>
-> = ({ children, className, onClick, space }) => {
+interface ClusterProps {
+  className?: string
+  onClick?: () => void
+  space?: SpaceToken
+}
+
+const Cluster: FunctionComponent<PropsWithChildren<ClusterProps>> = ({
+  children,
+  className,
+  onClick,
+  space,
+}) => {
   return (
     <div
       onClick={onClick}

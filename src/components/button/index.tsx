@@ -14,17 +14,17 @@ import {
 export type Variant = 'primary' | 'danger' | 'neutral'
 export type Size = 'large' | 'medium' | 'small'
 
-const Button: FunctionComponent<
-  PropsWithChildren<{
-    className?: string
-    disabled?: boolean
-    loading?: boolean
-    onClick?: () => void
-    prefixIcon?: ReactNode
-    size?: Size
-    variant?: Variant
-  }>
-> = ({
+interface ButtonProps {
+  className?: string
+  disabled?: boolean
+  loading?: boolean
+  onClick?: () => void
+  prefixIcon?: ReactNode
+  size?: Size
+  variant?: Variant
+}
+
+const Button: FunctionComponent<PropsWithChildren<ButtonProps>> = ({
   children,
   disabled,
   loading,
