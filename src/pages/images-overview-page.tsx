@@ -1,8 +1,8 @@
-import { FC } from "react";
-import Images from "../features/images";
+import { FC } from 'react'
+import Images from '../features/images'
 
 const ImagesPage: FC = () => {
-  return <Images />;
-};
+  return <Images />
+}
 
-export default ImagesPage;
+export default ImagesPage

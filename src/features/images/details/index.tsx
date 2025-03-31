@@ -1,14 +1,14 @@
-import { useCallback, type FC } from "react";
-import { useLoaderData, useNavigate } from "react-router";
-import { APP_ROUTES } from "../../../pages/router";
+import { useCallback, type FC } from 'react'
+import { useLoaderData, useNavigate } from 'react-router'
+import { APP_ROUTES } from '../../../pages/router'
 
 const ImageDetails: FC = () => {
-  const { data } = useLoaderData();
-  const navigate = useNavigate();
+  const { data } = useLoaderData()
+  const navigate = useNavigate()
 
   const handleBackNavigation = useCallback(() => {
-    navigate(APP_ROUTES.HOME);
-  }, [navigate]);
+    navigate(APP_ROUTES.HOME)
+  }, [navigate])
 
   return (
     <div>
@@ -18,7 +18,7 @@ const ImageDetails: FC = () => {
       <br />
       {JSON.stringify(data, null, 4)}
     </div>
-  );
-};
+  )
+}
 
-export default ImageDetails;
+export default ImageDetails

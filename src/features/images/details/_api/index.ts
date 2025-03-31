@@ -1,12 +1,12 @@
-import type { ErrorResponse, Photo } from "pexels";
-import { pexelsClient } from "../../../api";
+import type { ErrorResponse, Photo } from 'pexels'
+import { pexelsClient } from '../../../api'
 
 export async function getImage({
   id,
 }: {
-  id: number | string;
+  id: number | string
 }): Promise<Photo | ErrorResponse> {
-  const data = await pexelsClient.photos.show({ id });
+  const data = await pexelsClient.photos.show({ id })
 
-  return data;
+  return data
 }
