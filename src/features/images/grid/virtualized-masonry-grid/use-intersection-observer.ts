@@ -8,7 +8,6 @@ export const useIntersectionObserver = (
       const newItems: Record<string, boolean> = {}
       records.forEach((record) => {
         if (record.isIntersecting) {
-          console.log(record)
           const id = (record.target as HTMLElement).dataset.id
 
           if (id) {

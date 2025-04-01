@@ -1,39 +1,30 @@
-import { FC, PropsWithChildren } from 'react'
+import { FC, PropsWithChildren, RefCallback } from 'react'
 import { CardBodyStyles, CardImageStyles, CardSkeletonStyles, CardStyles } from './index.css'
 
-export type CardSizes = {
-  w: string
-  h: string
-}
-
 interface CardProps {
-  src: string
   alt?: string
+  id: string
+  imageRef?: RefCallback<HTMLImageElement | null>
   isPending?: boolean
-  width?: string
-  height?: string
+  src: string
+  style?: React.CSSProperties
 }
 
 const Card: FC<PropsWithChildren<CardProps>> = ({
-  src,
   alt = '',
-  isPending,
   children,
-  width,
-  height,
+  id,
+  imageRef,
+  isPending,
+  src,
+  style,
 }) => {
   return (
-    <div
-      className={CardStyles}
-      // style={{
-      //   width: `${width}px`,
-      //   height: `${height}px`,
-      // }}
-    >
+    <div className={CardStyles} style={{ ...style }}>
       {isPending ? (
-        <div className={CardSkeletonStyles} />
+        <div ref={imageRef} className={CardSkeletonStyles} data-id={id} />
       ) : (
-        <img className={CardImageStyles} src={src} alt={alt} />
+        <img ref={imageRef} className={CardImageStyles} src={src} alt={alt} data-id={id} />
       )}
       {children && <div className={CardBodyStyles}>{children}</div>}
     </div>
