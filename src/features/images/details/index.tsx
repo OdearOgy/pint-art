@@ -1,5 +1,8 @@
+import { ArrowLeftIcon } from '@heroicons/react/24/solid'
 import { useCallback, type FC } from 'react'
 import { useLoaderData, useNavigate } from 'react-router'
+import Button from '../../../components/button'
+import Stack from '../../../components/stack'
 import { APP_ROUTES } from '../../../pages/router'
 
 const ImageDetails: FC = () => {
@@ -11,13 +14,15 @@ const ImageDetails: FC = () => {
   }, [navigate])
 
   return (
-    <div>
-      <button onClick={handleBackNavigation}>go back</button>
+    <Stack>
+      <Button onClick={handleBackNavigation} variant="primary" prefixIcon={<ArrowLeftIcon />}>
+        go back
+      </Button>
       <br />
       Image details
       <br />
       {JSON.stringify(data, null, 4)}
-    </div>
+    </Stack>
   )
 }
 
