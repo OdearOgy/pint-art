@@ -1,7 +1,7 @@
 import { Input as HeadlessInput } from '@headlessui/react'
 import type { FC } from 'react'
 import Stack from '../stack'
-import { FieldInputStyles, FieldLabelStyles, FieldStyles } from './index.css'
+import { FieldInputStyles, FieldLabelStyles, FieldStyles } from './index.css.ts'
 
 interface InputProps {
   label?: string

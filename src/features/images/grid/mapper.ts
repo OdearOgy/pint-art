@@ -1,5 +1,5 @@
 import { Photo } from 'pexels'
-import { vars } from '../../../styles/theme.css'
+import { vars } from '../../../styles/theme.css.ts'
 import { MasonryItem } from './virtualized-masonry-grid/types'
 
 export const toMasonryItemDto = (data: Photo): MasonryItem => {

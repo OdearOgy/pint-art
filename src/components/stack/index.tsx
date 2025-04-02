@@ -1,7 +1,7 @@
 import type { CSSProperties, FC, PropsWithChildren } from 'react'
-import { vars } from '../../styles/theme.css'
+import { vars } from '../../styles/theme.css.ts'
 import { SpaceToken } from '../../styles/types'
-import { StackStyles } from './index.css'
+import { StackStyles } from './index.css.ts'
 
 interface StackProps {
   className?: string

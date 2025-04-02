@@ -1,5 +1,5 @@
 import { createGlobalTheme } from '@vanilla-extract/css'
-import { spin } from './animations.css'
+import { spin } from './animations.css.ts'
 
 export const vars = createGlobalTheme(':root', {
   color: {

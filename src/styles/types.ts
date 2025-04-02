@@ -1,4 +1,4 @@
-import { vars } from './theme.css'
+import { vars } from './theme.css.ts'
 
 type ThemeVars = typeof vars
 
