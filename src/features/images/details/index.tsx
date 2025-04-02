@@ -1,12 +1,14 @@
 import { ArrowLeftIcon } from '@heroicons/react/24/solid'
+import type { Photo } from 'pexels'
 import { useCallback, type FC } from 'react'
-import { useLoaderData, useNavigate } from 'react-router'
+import { useNavigate } from 'react-router'
 import Button from '../../../components/button'
 import Stack from '../../../components/stack'
 import { APP_ROUTES } from '../../../pages/routes'
 
-const ImageDetails: FC = () => {
-  const { data } = useLoaderData()
+const ImageDetails: FC<{
+  data: Photo
+}> = ({ data }) => {
   const navigate = useNavigate()
 
   const handleBackNavigation = useCallback(() => {
