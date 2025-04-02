@@ -1,13 +1,11 @@
+import { lazy } from 'react'
 import { createBrowserRouter } from 'react-router'
 import { getImages } from '../features/images/_api'
 import { getImage } from '../features/images/details/_api'
-import ImageDetailsPage from './image-details-page'
-import ImagesOverviewPage from './images-overview-page'
+import { APP_ROUTES } from './routes'
 
-export const APP_ROUTES = {
-  HOME: '/',
-  IMAGE_DETAILS: '/:id',
-} as const
+const ImagesOverviewPage = lazy(() => import('./images-overview-page'))
+const ImageDetailsPage = lazy(() => import('./image-details-page'))
 
 const router = createBrowserRouter([
   {
@@ -16,7 +14,10 @@ const router = createBrowserRouter([
     element: <ImagesOverviewPage />,
     loader: async () => {
       return {
-        data: await getImages(),
+        data: await getImages({
+          page: 1,
+          per_page: 40,
+        }),
       }
     },
   },

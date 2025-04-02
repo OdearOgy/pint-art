@@ -3,7 +3,7 @@ import { useCallback, type FC } from 'react'
 import { useLoaderData, useNavigate } from 'react-router'
 import Button from '../../../components/button'
 import Stack from '../../../components/stack'
-import { APP_ROUTES } from '../../../pages/router'
+import { APP_ROUTES } from '../../../pages/routes'
 
 const ImageDetails: FC = () => {
   const { data } = useLoaderData()

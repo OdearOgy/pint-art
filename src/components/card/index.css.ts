@@ -38,6 +38,6 @@ export const CardBodyStyles = style({})
 
 export const CardSkeletonStyles = style({
   background: 'currentColor',
-  paddingTop: '150%',
-  width: vars.space.full,
+  width: 'inherit',
+  height: 'inherit',
 })

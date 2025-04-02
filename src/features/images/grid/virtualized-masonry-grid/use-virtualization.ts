@@ -1,7 +1,8 @@
+import { RefObject } from 'react'
 import { MasonryItem } from '.'
-import { LayoutConfiguration } from './use-configure-layout'
+import { useLayoutConfiguration } from './use-layout-configuration'
 
-type ColumnItem = MasonryItem & {
+export type ColumnItem = MasonryItem & {
   posX: number
   posY: number
 }
@@ -10,13 +11,19 @@ export const useVirtualization = (
   bufferRows: number,
   columnGap: number,
   columnWidth: number,
+  gridContainerRef: RefObject<HTMLDivElement | null>,
   items: MasonryItem[],
-  layoutConfiguration: LayoutConfiguration
+  onScroll: () => void
 ): {
   visibleItems: ColumnItem[]
   longestColumn: number
 } => {
-  const { gridColumns, gridContainerHeight, scrollPosition } = layoutConfiguration
+  const { gridColumns, gridContainerHeight, scrollPosition } = useLayoutConfiguration(
+    gridContainerRef,
+    columnWidth,
+    columnGap,
+    onScroll
+  )
 
   const gridColumnHeight = new Array(gridColumns).fill(0)
   const gridColumnItems: ColumnItem[] = []

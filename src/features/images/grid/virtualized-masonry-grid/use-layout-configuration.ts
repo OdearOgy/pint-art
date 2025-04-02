@@ -6,12 +6,13 @@ export type LayoutConfiguration = {
   scrollPosition: number
 }
 
-export const useConfigureLayout = (
+export const useLayoutConfiguration = (
   gridContainerRef: RefObject<HTMLDivElement | null>,
   columnWidth: number,
-  columnGap: number
+  columnGap: number,
+  onScroll: () => void
 ): LayoutConfiguration => {
-  const [gridColumns, setGridColumns] = useState(3)
+  const [gridColumns, setGridColumns] = useState(0)
   const [scrollPosition, setScrollPosition] = useState(0)
   const [gridContainerHeight, setGridContainerHeight] = useState(globalThis.innerHeight)
 
@@ -27,7 +28,8 @@ export const useConfigureLayout = (
 
   const handleScroll = useCallback(() => {
     setScrollPosition(globalThis.scrollY)
-  }, [])
+    onScroll()
+  }, [onScroll])
 
   useEffect(() => {
     handleResize()

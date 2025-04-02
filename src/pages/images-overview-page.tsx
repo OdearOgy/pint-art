@@ -11,7 +11,7 @@ const ImagesPage: FC = () => {
   } = useLoaderData()
 
   return (
-    <Suspense fallback="aloo">
+    <Suspense fallback={<h1>loading...</h1>}>
       <Await resolve={data}>
         <Images data={data} />
       </Await>

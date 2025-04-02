@@ -22,9 +22,18 @@ const Card: FC<PropsWithChildren<CardProps>> = ({
   return (
     <div className={CardStyles} style={{ ...style }}>
       {isPending ? (
-        <div ref={imageRef} className={CardSkeletonStyles} data-id={id} />
+        <div ref={imageRef} className={CardSkeletonStyles}>
+          loader
+        </div>
       ) : (
-        <img ref={imageRef} className={CardImageStyles} src={src} alt={alt} data-id={id} />
+        <img
+          ref={imageRef}
+          className={CardImageStyles}
+          src={src}
+          alt={alt}
+          data-id={id}
+          loading="lazy"
+        />
       )}
       {children && <div className={CardBodyStyles}>{children}</div>}
     </div>
