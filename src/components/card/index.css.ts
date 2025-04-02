@@ -1,12 +1,10 @@
 import { style } from '@vanilla-extract/css'
-import { vars } from '../../styles/theme.css'
+import { vars } from '../../styles/theme.css.ts'
 
 export const CardStyles = style({
   borderRadius: vars.radii.lg,
-  cursor: 'pointer',
   overflow: 'hidden',
-  position: 'absolute',
-
+  position: 'relative',
   selectors: {
     [`&::after`]: {
       background: 'currentColor',
@@ -33,8 +31,6 @@ export const CardImageStyles = style({
   objectFit: 'cover',
   width: '100%',
 })
-
-export const CardBodyStyles = style({})
 
 export const CardSkeletonStyles = style({
   background: 'currentColor',
