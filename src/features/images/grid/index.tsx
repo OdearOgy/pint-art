@@ -1,11 +1,11 @@
 import { FC, useCallback, useLayoutEffect, useState } from 'react'
-import Button from '../../../components/button/index.tsx'
-import Cluster from '../../../components/cluster/index.tsx'
+import Button from '../../../components/button'
+import Cluster from '../../../components/layout/cluster'
 import type { PhotosDto } from '../../../utils/types.ts'
 import { getImages } from '../_api/index.ts'
 import { GridStyles } from './index.css.ts'
 import { toMasonryItemDto } from './mapper.ts'
-import VirtualizedMasonryGrid from './virtualized-masonry-grid/index.tsx'
+import VirtualizedMasonryGrid from './virtualized-masonry-grid'
 
 const Images: FC<{
   data: PhotosDto

@@ -5,9 +5,13 @@ export const CardStyles = style({
   borderRadius: vars.radii.lg,
   overflow: 'hidden',
   position: 'relative',
+  boxShadow: `2px 5px 10px ${vars.color.neutral[400]}`,
+  cursor: 'pointer',
+
   selectors: {
     [`&::after`]: {
       background: 'currentColor',
+      borderRadius: vars.radii.lg,
       content: '',
       display: 'block',
       height: vars.space.full,
@@ -26,7 +30,7 @@ export const CardStyles = style({
 })
 
 export const CardImageStyles = style({
-  borderRadius: 'inherit',
+  borderRadius: vars.radii.lg,
   height: '100%',
   objectFit: 'cover',
   width: '100%',
@@ -34,6 +38,7 @@ export const CardImageStyles = style({
 
 export const CardSkeletonStyles = style({
   background: 'currentColor',
-  width: 'inherit',
+  borderRadius: vars.radii.lg,
   height: 'inherit',
+  width: 'inherit',
 })

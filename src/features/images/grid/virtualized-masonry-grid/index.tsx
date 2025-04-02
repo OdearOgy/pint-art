@@ -66,6 +66,7 @@ const VirtualizedMasonryGrid: FC<VirtualizedMasonryGridProps> = ({
                 height: `${item.height}px`,
                 left: `${item.posX}px`,
                 top: `${item.posY}px`,
+                position: 'absolute',
                 width: columnWidth,
               }}
             />
