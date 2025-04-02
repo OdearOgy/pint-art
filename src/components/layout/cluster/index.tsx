@@ -1,13 +1,10 @@
-import type { CSSProperties, FC, PropsWithChildren } from 'react'
-import { vars } from '../../styles/theme.css.ts'
-import { SpaceToken } from '../../styles/types'
+import type { FC, PropsWithChildren } from 'react'
+import { vars } from '../../../styles/theme.css.ts'
+import type { LayoutProps } from '../types.ts'
 import { ClusterStyles } from './index.css.ts'
 
-interface ClusterProps {
-  className?: string
+type ClusterProps = LayoutProps & {
   onClick?: () => void
-  space?: SpaceToken
-  style?: CSSProperties
 }
 
 const Cluster: FC<PropsWithChildren<ClusterProps>> = ({
