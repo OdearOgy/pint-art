@@ -1,20 +1,32 @@
 import type { FC } from 'react'
-import { IconsStyles } from './icons.css.ts'
+import { vars } from '../../styles/theme.css.ts'
 import { IconProps } from './types.ts'
 
-const ArrowLeftIcon: FC<IconProps> = ({ className, style }) => {
+const ArrowLeftIcon: FC<IconProps> = ({ className, size, style }) => {
   return (
-    <svg
-      fill="none"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className={`${IconsStyles} ${className}`}
-      style={style}
+    <div
+      className={className}
+      style={{
+        width: vars.fontSize[size ?? 'base'],
+        height: vars.fontSize[size ?? 'base'],
+        fontSize: vars.fontSize[size ?? 'base'],
+        ...style,
+      }}
     >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-    </svg>
+      <svg
+        fill="none"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        strokeWidth={1.5}
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+        />
+      </svg>
+    </div>
   )
 }
 
