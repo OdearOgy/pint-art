@@ -1,7 +1,7 @@
 import { Button as HeadlessButton } from '@headlessui/react'
-import { ArrowPathIcon } from '@heroicons/react/24/solid'
 import { FunctionComponent, PropsWithChildren, ReactNode } from 'react'
 import Cluster from '../cluster'
+import ArrowPathIcon from '../icons/arrow-path-icon.tsx'
 import {
   ButtonBodyStyles,
   ButtonLoadingIconStyles,

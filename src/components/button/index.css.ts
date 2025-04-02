@@ -1,5 +1,5 @@
 import { style, styleVariants } from '@vanilla-extract/css'
-import { vars } from '../../styles/theme.css'
+import { vars } from '../../styles/theme.css.ts'
 
 // TODO: consider using recipes
 export const ButtonStyles = style({
