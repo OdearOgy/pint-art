@@ -1,5 +1,5 @@
-import { FC, PropsWithChildren, RefCallback } from 'react'
-import { CardBodyStyles, CardImageStyles, CardSkeletonStyles, CardStyles } from './index.css'
+import type { CSSProperties, FC, RefCallback } from 'react'
+import { CardImageStyles, CardSkeletonStyles, CardStyles } from './index.css.ts'
 
 interface CardProps {
   alt?: string
@@ -7,18 +7,10 @@ interface CardProps {
   imageRef?: RefCallback<HTMLImageElement | null>
   isPending?: boolean
   src: string
-  style?: React.CSSProperties
+  style?: CSSProperties
 }
 
-const Card: FC<PropsWithChildren<CardProps>> = ({
-  alt = '',
-  children,
-  id,
-  imageRef,
-  isPending,
-  src,
-  style,
-}) => {
+const Card: FC<CardProps> = ({ alt = '', id, imageRef, isPending, src, style }) => {
   return (
     <div className={CardStyles} style={{ ...style }}>
       {isPending ? (
@@ -35,7 +27,6 @@ const Card: FC<PropsWithChildren<CardProps>> = ({
           loading="lazy"
         />
       )}
-      {children && <div className={CardBodyStyles}>{children}</div>}
     </div>
   )
 }

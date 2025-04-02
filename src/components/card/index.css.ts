@@ -1,15 +1,17 @@
 import { style } from '@vanilla-extract/css'
-import { vars } from '../../styles/theme.css'
+import { vars } from '../../styles/theme.css.ts'
 
 export const CardStyles = style({
   borderRadius: vars.radii.lg,
-  cursor: 'pointer',
   overflow: 'hidden',
-  position: 'absolute',
+  position: 'relative',
+  boxShadow: `2px 5px 10px ${vars.color.neutral[400]}`,
+  cursor: 'pointer',
 
   selectors: {
     [`&::after`]: {
       background: 'currentColor',
+      borderRadius: vars.radii.lg,
       content: '',
       display: 'block',
       height: vars.space.full,
@@ -28,16 +30,15 @@ export const CardStyles = style({
 })
 
 export const CardImageStyles = style({
-  borderRadius: 'inherit',
+  borderRadius: vars.radii.lg,
   height: '100%',
   objectFit: 'cover',
   width: '100%',
 })
 
-export const CardBodyStyles = style({})
-
 export const CardSkeletonStyles = style({
   background: 'currentColor',
-  width: 'inherit',
+  borderRadius: vars.radii.lg,
   height: 'inherit',
+  width: 'inherit',
 })

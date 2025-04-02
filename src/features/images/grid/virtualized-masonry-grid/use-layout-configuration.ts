@@ -1,10 +1,5 @@
 import { RefObject, useCallback, useEffect, useState } from 'react'
-
-export type LayoutConfiguration = {
-  gridColumns: number
-  gridContainerHeight: number
-  scrollPosition: number
-}
+import { LayoutConfiguration } from './types'
 
 export const useLayoutConfiguration = (
   gridContainerRef: RefObject<HTMLDivElement | null>,
@@ -32,7 +27,7 @@ export const useLayoutConfiguration = (
   }, [onScroll])
 
   useEffect(() => {
-    handleResize()
+    globalThis.requestAnimationFrame(handleResize)
 
     globalThis.addEventListener('resize', handleResize)
     return () => globalThis.removeEventListener('resize', handleResize)

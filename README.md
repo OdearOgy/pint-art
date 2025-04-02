@@ -16,10 +16,9 @@
         - [*] Add virtualization
         - [ ] Reuse dom nodes 
         - [ ] Add lazy loading
-- [ ] Create details view
+- [*] Create details view
         - [*] Add details route
         - [*] Get data from the api
-        - [ ] Display keywords
 
 - [ ] Implement search
         - [ ] Create search functionality with pexels api

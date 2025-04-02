@@ -2,28 +2,13 @@ import { FC, memo, useCallback, useRef } from 'react'
 import { Link } from 'react-router'
 import Card from '../../../../components/card'
 import { BUFFER_MARGIN } from './constants'
+import { VirtualizedMasonryGridProps } from './types'
 import { useVirtualization } from './use-virtualization'
-
-export type MasonryItem = {
-  height: number
-  id: string
-  src: string
-  color?: string
-  alt: string
-}
-
-interface VirtualizedMasonryGridProps {
-  bufferRows?: number
-  columnGap?: number
-  columnWidth?: number
-  items: MasonryItem[]
-  loadMore: () => void
-}
 
 const VirtualizedMasonryGrid: FC<VirtualizedMasonryGridProps> = ({
   bufferRows = 2,
-  columnGap = 16,
-  columnWidth = 400,
+  columnGap = 15,
+  columnWidth = 350,
   items,
   loadMore,
 }) => {
@@ -34,6 +19,7 @@ const VirtualizedMasonryGrid: FC<VirtualizedMasonryGridProps> = ({
     const scrollY = globalThis.scrollY
     const windowHeight = globalThis.innerHeight
     const pageHeight = globalThis.document.documentElement.scrollHeight
+
     if (
       scrollY + windowHeight >= pageHeight - BUFFER_MARGIN &&
       loadMore &&
@@ -61,10 +47,14 @@ const VirtualizedMasonryGrid: FC<VirtualizedMasonryGridProps> = ({
       style={{
         position: 'relative',
         height: `${longestColumn}px`,
+        margin: '0 auto',
+        maxWidth: '90%',
+        display: 'flex',
       }}
     >
       {visibleItems?.map((item) => {
         return (
+          // TODO: The api sometimes returns the same image, so we need to update the keys
           <Link to={`/${item.id}`} key={item.id}>
             <Card
               id={item.id}
@@ -76,6 +66,7 @@ const VirtualizedMasonryGrid: FC<VirtualizedMasonryGridProps> = ({
                 height: `${item.height}px`,
                 left: `${item.posX}px`,
                 top: `${item.posY}px`,
+                position: 'absolute',
                 width: columnWidth,
               }}
             />

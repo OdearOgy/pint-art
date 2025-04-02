@@ -1,11 +1,6 @@
 import { RefObject } from 'react'
-import { MasonryItem } from '.'
+import { ColumnItem, MasonryItem } from './types'
 import { useLayoutConfiguration } from './use-layout-configuration'
-
-export type ColumnItem = MasonryItem & {
-  posX: number
-  posY: number
-}
 
 export const useVirtualization = (
   bufferRows: number,

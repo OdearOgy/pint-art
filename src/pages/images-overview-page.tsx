@@ -1,13 +1,13 @@
-import type { Photos } from 'pexels'
 import { FC, Suspense } from 'react'
 import { Await, useLoaderData } from 'react-router'
 import Images from '../features/images/grid'
+import { PhotosDto } from '../utils/types'
 
 const ImagesPage: FC = () => {
   const {
     data,
   }: {
-    data: Photos
+    data: PhotosDto
   } = useLoaderData()
 
   return (

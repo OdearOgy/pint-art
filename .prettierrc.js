@@ -3,6 +3,6 @@ export default {
   semi: false,
   singleQuote: true,
   trailingComma: 'es5',
-  printWidth: 80,
+  printWidth: 100,
   tabWidth: 2,
 }

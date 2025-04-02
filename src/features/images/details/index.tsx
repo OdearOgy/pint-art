@@ -1,12 +1,19 @@
-import { ArrowLeftIcon } from '@heroicons/react/24/solid'
+import type { Photo } from 'pexels'
 import { useCallback, type FC } from 'react'
-import { useLoaderData, useNavigate } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import Button from '../../../components/button'
-import Stack from '../../../components/stack'
+import Card from '../../../components/card'
+import ArrowLeftIcon from '../../../components/icons/arrow-left-icon.tsx'
+import Center from '../../../components/layout/center'
+import Cover from '../../../components/layout/cover'
+import Stack from '../../../components/layout/stack'
 import { APP_ROUTES } from '../../../pages/routes'
+import { vars } from '../../../styles/theme.css.ts'
+import Author from './author'
 
-const ImageDetails: FC = () => {
-  const { data } = useLoaderData()
+const ImageDetails: FC<{
+  data: Photo
+}> = ({ data }) => {
   const navigate = useNavigate()
 
   const handleBackNavigation = useCallback(() => {
@@ -14,15 +21,53 @@ const ImageDetails: FC = () => {
   }, [navigate])
 
   return (
-    <Stack>
-      <Button onClick={handleBackNavigation} variant="primary" prefixIcon={<ArrowLeftIcon />}>
-        go back
-      </Button>
-      <br />
-      Image details
-      <br />
-      {JSON.stringify(data, null, 4)}
-    </Stack>
+    <Cover space={5}>
+      <Stack
+        space={5}
+        style={{
+          marginBlock: 'auto',
+        }}
+      >
+        <Center>
+          <Button
+            onClick={handleBackNavigation}
+            variant="primary"
+            prefixIcon={<ArrowLeftIcon />}
+            size="large"
+          >
+            Go Back
+          </Button>
+        </Center>
+
+        <Center>
+          <Stack
+            style={{
+              height: '50vh',
+              width: '50vw',
+            }}
+            space={2}
+          >
+            <Link to={data.url} target="_blank">
+              <Card
+                src={data.src.large2x}
+                id={data.id?.toString()}
+                style={{
+                  color: data.avg_color ?? vars.color.neutral[900],
+                  borderRadius: vars.radii['2xl'],
+                  position: 'relative',
+                  width: 'auto',
+                  height: '100%',
+                }}
+              />
+            </Link>
+
+            <Center>
+              <Author data={data} />
+            </Center>
+          </Stack>
+        </Center>
+      </Stack>
+    </Cover>
   )
 }
 

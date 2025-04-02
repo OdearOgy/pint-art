@@ -1,12 +1,14 @@
-import { Photos } from 'pexels'
 import { FC, useCallback, useLayoutEffect, useState } from 'react'
+import Button from '../../../components/button'
+import Cluster from '../../../components/layout/cluster'
+import type { PhotosDto } from '../../../utils/types.ts'
 import { getImages } from '../_api/index.ts'
 import { GridStyles } from './index.css.ts'
 import { toMasonryItemDto } from './mapper.ts'
-import VirtualizedMasonryGrid from './virtualized-masonry-grid/index.tsx'
+import VirtualizedMasonryGrid from './virtualized-masonry-grid'
 
 const Images: FC<{
-  data: Photos
+  data: PhotosDto
 }> = ({ data: initialData }) => {
   const [data, setData] = useState(initialData.photos)
   const [loading, setLoading] = useState(false)
@@ -23,7 +25,7 @@ const Images: FC<{
         per_page: 40,
       })
       if (newData) {
-        const photos = (newData as Photos).photos
+        const photos = (newData as PhotosDto).photos
         setData((prevData) => [...prevData, ...photos])
       }
     } catch (error) {
@@ -47,7 +49,20 @@ const Images: FC<{
         loadMore={handleLoadMoreTrigger}
       />
 
-      <div style={{ margin: '0 auto' }}>{loading && <div>Loading...</div>}</div>
+      <div style={{ margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
+        {loading && <div>Loading...</div>}
+      </div>
+      <Cluster
+        style={{
+          justifyContent: 'center',
+        }}
+      >
+        {initialData.total_results > data.length && !loading && (
+          <Button onClick={handleLoadMoreTrigger} variant="primary" loading={loading} size="large">
+            Load More
+          </Button>
+        )}
+      </Cluster>
     </div>
   )
 }
