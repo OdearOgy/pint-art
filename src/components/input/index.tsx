@@ -1,5 +1,5 @@
 import { Input as HeadlessInput } from '@headlessui/react'
-import { FunctionComponent } from 'react'
+import type { FC } from 'react'
 import Stack from '../stack'
 import { FieldInputStyles, FieldLabelStyles, FieldStyles } from './index.css'
 
@@ -12,14 +12,7 @@ interface InputProps {
   value: unknown
 }
 
-const Input: FunctionComponent<InputProps> = ({
-  label,
-  name,
-  onBlur,
-  onChange,
-  placeholder,
-  value,
-}) => {
+const Input: FC<InputProps> = ({ label, name, onBlur, onChange, placeholder, value }) => {
   return (
     <Stack className={FieldStyles}>
       {label ? <label className={FieldLabelStyles}>{label}</label> : null}

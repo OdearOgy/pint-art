@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, RefCallback } from 'react'
+import type { CSSProperties, FC, PropsWithChildren, RefCallback } from 'react'
 import { CardBodyStyles, CardImageStyles, CardSkeletonStyles, CardStyles } from './index.css'
 
 interface CardProps {
@@ -7,7 +7,7 @@ interface CardProps {
   imageRef?: RefCallback<HTMLImageElement | null>
   isPending?: boolean
   src: string
-  style?: React.CSSProperties
+  style?: CSSProperties
 }
 
 const Card: FC<PropsWithChildren<CardProps>> = ({
