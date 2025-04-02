@@ -26,6 +26,7 @@ interface ButtonProps {
 
 const Button: FunctionComponent<PropsWithChildren<ButtonProps>> = ({
   children,
+  className,
   disabled,
   loading,
   onClick,
@@ -33,7 +34,7 @@ const Button: FunctionComponent<PropsWithChildren<ButtonProps>> = ({
   size = 'medium',
   variant = 'neutral',
 }) => {
-  const btnCls = `${ButtonStyles} ${ButtonVariantStyles[variant]} ${ButtonSizeStyles[size]}`
+  const btnCls = `${ButtonStyles} ${ButtonVariantStyles[variant]} ${ButtonSizeStyles[size]} ${className ?? ''}`
 
   return (
     <HeadlessButton

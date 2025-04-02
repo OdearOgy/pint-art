@@ -20,7 +20,7 @@ const Cluster: FC<PropsWithChildren<ClusterProps>> = ({
   return (
     <div
       onClick={onClick}
-      className={`${ClusterStyles} ${className}`}
+      className={`${ClusterStyles} ${className ?? ''}`}
       style={{
         gap: vars.space[space ?? 1],
         ...style,

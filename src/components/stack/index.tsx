@@ -12,7 +12,7 @@ interface StackProps {
 const Stack: FC<PropsWithChildren<StackProps>> = ({ children, className, space, style }) => {
   return (
     <div
-      className={`${StackStyles} ${className}`}
+      className={`${StackStyles} ${className ?? ''}`}
       style={{
         gap: vars.space[space ?? 1],
         ...style,
