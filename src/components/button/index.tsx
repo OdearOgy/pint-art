@@ -1,11 +1,10 @@
 import { Button as HeadlessButton } from '@headlessui/react'
 import { FunctionComponent, PropsWithChildren, ReactNode } from 'react'
-import Cluster from '../cluster'
 import ArrowPathIcon from '../icons/arrow-path-icon.tsx'
+import Cluster from '../layout/cluster'
 import {
   ButtonBodyStyles,
   ButtonLoadingIconStyles,
-  ButtonPrefixStyles,
   ButtonSizeStyles,
   ButtonStyles,
   ButtonVariantStyles,
@@ -49,7 +48,7 @@ const Button: FunctionComponent<PropsWithChildren<ButtonProps>> = ({
           <ArrowPathIcon className={ButtonLoadingIconStyles} />
         ) : (
           <>
-            {prefixIcon && <span className={ButtonPrefixStyles}>{prefixIcon}</span>}
+            {prefixIcon && prefixIcon}
             {children}
           </>
         )}
