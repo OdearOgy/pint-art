@@ -1,8 +1,14 @@
-import type { ErrorResponse, Photos } from "pexels";
-import { pexelsClient } from "../../api";
+import type { ErrorResponse, PaginationParams, Photos } from 'pexels'
+import { pexelsClient } from '../../api'
 
-export async function getImages(): Promise<Photos | ErrorResponse> {
-  const data = await pexelsClient.photos.curated();
+export async function getImages({
+  page = 0,
+  per_page = 20,
+}: PaginationParams): Promise<Photos | ErrorResponse> {
+  const data = await pexelsClient.photos.curated({
+    page,
+    per_page,
+  })
 
-  return data;
+  return data
 }

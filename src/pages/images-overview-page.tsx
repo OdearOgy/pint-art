@@ -1,8 +1,22 @@
-import { FC } from "react";
-import Images from "../features/images";
+import type { Photos } from 'pexels'
+import { FC, Suspense } from 'react'
+import { Await, useLoaderData } from 'react-router'
+import Images from '../features/images/grid'
 
 const ImagesPage: FC = () => {
-  return <Images />;
-};
+  const {
+    data,
+  }: {
+    data: Photos
+  } = useLoaderData()
 
-export default ImagesPage;
+  return (
+    <Suspense fallback={<h1>loading...</h1>}>
+      <Await resolve={data}>
+        <Images data={data} />
+      </Await>
+    </Suspense>
+  )
+}
+
+export default ImagesPage

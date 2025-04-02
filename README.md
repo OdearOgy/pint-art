@@ -5,20 +5,20 @@
 
 ## TODO
 - [*] Initial Setup
-- [ ] Configure necessary dependencies
-        - [ ] Configure react-router
-        - [ ] Configure pexels api
+- [*] Configure necessary dependencies
+        - [*] Configure react-router
+        - [*] Configure pexels api
 - [ ] Create grid view
-        - [ ] Implement masonry grid
-                - [ ] Get data from the api
-                - [ ] Make it responsive
-                - [ ] Add skeleton loaders
-        - [ ] Add virtualization
+        - [*] Implement masonry grid
+                - [*] Get data from the api
+                - [*] Make it responsive
+                - [*] Add skeleton loaders
+        - [*] Add virtualization
         - [ ] Reuse dom nodes 
-        - [ ]
+        - [ ] Add lazy loading
 - [ ] Create details view
-        - [ ] Add details route
-        - [ ] Get data from the api
+        - [*] Add details route
+        - [*] Get data from the api
         - [ ] Display keywords
 
 - [ ] Implement search
@@ -26,3 +26,5 @@
         - [ ] Add debouncing upon typing 
         - [ ] Update url with the search query
         - [ ] Update grid view upon enter
+- [ ] Add Error boundaries
+- [ ] Provide pending UI for Suspense Fallback
