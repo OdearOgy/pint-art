@@ -16,7 +16,9 @@ const ImageDetails: FC<{
   const navigate = useNavigate()
 
   const handleBackNavigation = useCallback(() => {
-    navigate(APP_ROUTES.IMAGES)
+    navigate(APP_ROUTES.IMAGES, {
+      viewTransition: true,
+    })
   }, [navigate])
 
   return (
@@ -50,11 +52,14 @@ const ImageDetails: FC<{
               src={data.src.large2x}
               id={data.id?.toString()}
               style={{
-                color: data.avg_color ?? vars.color.neutral[900],
+                background: data.avg_color ?? vars.color.neutral[900],
                 borderRadius: vars.radii['2xl'],
+                color: data.avg_color ?? vars.color.neutral[900],
+                height: '100%',
+                minHeight: '80vh',
+                minWidth: '25vw',
                 position: 'relative',
                 width: 'auto',
-                height: '100%',
               }}
             />
           </Link>
