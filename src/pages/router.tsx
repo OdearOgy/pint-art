@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router'
 import { getImages } from '../features/images/_api'
 import { getImage } from '../features/images/details/_api'
 import { DEFAULT_PAGINATION } from '../shared/constants'
+import ErrorBoundary from './_error-boundary'
 import Layout from './_layout'
 import { APP_ROUTES } from './routes'
 
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
+    errorElement: <ErrorBoundary />,
     children: [
       {
         index: true,

@@ -8,6 +8,7 @@ const Spinner: FC<{
 }> = ({ color, size }) => {
   return (
     <div
+      role="status"
       className={SpinnerStyles}
       style={{
         width: size ?? vars.space[12],

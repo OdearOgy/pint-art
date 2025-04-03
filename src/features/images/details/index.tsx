@@ -6,7 +6,6 @@ import Card from '../../../components/card'
 import ArrowLeftIcon from '../../../components/icons/arrow-left-icon.tsx'
 import Center from '../../../components/layout/center'
 import Stack from '../../../components/layout/stack'
-import { APP_ROUTES } from '../../../pages/routes'
 import { vars } from '../../../styles/theme.css.ts'
 import Author from './author'
 
@@ -16,9 +15,7 @@ const ImageDetails: FC<{
   const navigate = useNavigate()
 
   const handleBackNavigation = useCallback(() => {
-    navigate(APP_ROUTES.IMAGES, {
-      viewTransition: true,
-    })
+    navigate(-1)
   }, [navigate])
 
   return (
