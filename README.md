@@ -25,5 +25,5 @@
         - [*] Add debouncing upon typing 
         - [*] Update url with the search query
         - [*] Update grid view upon enter
-- [ ] Add Error boundaries
+- [*] Add Error boundaries
 - [ ] Provide pending UI for Suspense Fallback
