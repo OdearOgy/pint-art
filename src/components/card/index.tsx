@@ -19,9 +19,10 @@ const Card: FC<CardProps> = ({ alt = '', id, imageRef, isPending, src, style }) 
         <img
           ref={imageRef}
           className={CardImageStyles}
-          src={src}
+          src={src + '&auto=format&format=webp'}
           alt={alt}
           data-id={id}
+          fetchPriority="high"
           loading="lazy"
         />
       )}
