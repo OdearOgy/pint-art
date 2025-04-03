@@ -53,9 +53,11 @@ const VirtualizedMasonryGrid: FC<VirtualizedMasonryGridProps> = ({
       }}
     >
       {visibleItems?.map((item) => {
+        const url = `/images/${item.id}`
+
         return (
           // TODO: The api sometimes returns the same image, so we need to update the keys
-          <Link to={`/${item.id}`} key={item.id}>
+          <Link to={url} key={item.id} viewTransition>
             <Card
               id={item.id}
               src={item.src}

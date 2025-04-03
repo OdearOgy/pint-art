@@ -1,5 +1,6 @@
 import { Button as HeadlessButton } from '@headlessui/react'
 import { FunctionComponent, PropsWithChildren, ReactNode } from 'react'
+import { Size } from '../../shared/types.ts'
 import ArrowPathIcon from '../icons/arrow-path-icon.tsx'
 import Cluster from '../layout/cluster'
 import {
@@ -11,7 +12,6 @@ import {
 } from './index.css.ts'
 
 export type Variant = 'primary' | 'danger' | 'neutral'
-export type Size = 'large' | 'medium' | 'small'
 
 interface ButtonProps {
   className?: string

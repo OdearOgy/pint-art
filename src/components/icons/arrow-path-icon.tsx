@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 import { vars } from '../../styles/theme.css.ts'
-import { IconProps } from './types.ts'
+import type { IconProps } from './types.ts'
 
 const ArrowPathIcon: FC<IconProps> = ({ className, size, style }) => {
   return (

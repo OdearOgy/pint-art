@@ -4,3 +4,5 @@ import { Photos } from 'pexels'
 export type PhotosDto = Photos & {
   total_results: number
 }
+
+export type Size = 'large' | 'medium' | 'small'

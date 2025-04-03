@@ -2,7 +2,7 @@ import type { FC } from 'react'
 import { vars } from '../../styles/theme.css.ts'
 import type { IconProps } from './types.ts'
 
-const ArrowLeftIcon: FC<IconProps> = ({ className, size, style }) => {
+const XCircleIcon: FC<IconProps> = ({ className, size, style }) => {
   return (
     <div
       className={className}
@@ -23,11 +23,11 @@ const ArrowLeftIcon: FC<IconProps> = ({ className, size, style }) => {
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+          d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
         />
       </svg>
     </div>
   )
 }
 
-export default ArrowLeftIcon
+export default XCircleIcon

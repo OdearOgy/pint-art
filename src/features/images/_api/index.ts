@@ -1,14 +1,18 @@
 import type { ErrorResponse, PaginationParams } from 'pexels'
-import type { PhotosDto } from '../../../utils/types'
+import type { PhotosDto } from '../../../shared/types'
 import { pexelsClient } from '../../api'
 
 export async function getImages({
-  page = 0,
-  per_page = 20,
+  page,
+  per_page,
+  q,
 }: PaginationParams): Promise<PhotosDto | ErrorResponse> {
-  const data = await pexelsClient.photos.curated({
+  const api = q !== '' ? pexelsClient.photos.search : pexelsClient.photos.curated
+
+  const data = await api({
     page,
     per_page,
+    query: q,
   })
 
   return data as PhotosDto
