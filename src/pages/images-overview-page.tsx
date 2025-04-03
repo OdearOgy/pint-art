@@ -1,7 +1,7 @@
 import { FC, Suspense } from 'react'
 import { Await, useLoaderData } from 'react-router'
 import Images from '../features/images/grid'
-import { PhotosDto } from '../utils/types'
+import { PhotosDto } from '../shared/types'
 
 const ImagesPage: FC = () => {
   const {

@@ -5,9 +5,7 @@ import Button from '../../../components/button'
 import Card from '../../../components/card'
 import ArrowLeftIcon from '../../../components/icons/arrow-left-icon.tsx'
 import Center from '../../../components/layout/center'
-import Cover from '../../../components/layout/cover'
 import Stack from '../../../components/layout/stack'
-import { APP_ROUTES } from '../../../pages/routes'
 import { vars } from '../../../styles/theme.css.ts'
 import Author from './author'
 
@@ -17,57 +15,58 @@ const ImageDetails: FC<{
   const navigate = useNavigate()
 
   const handleBackNavigation = useCallback(() => {
-    navigate(APP_ROUTES.HOME)
+    navigate(-1)
   }, [navigate])
 
   return (
-    <Cover space={5}>
-      <Stack
-        space={5}
-        style={{
-          marginBlock: 'auto',
-        }}
-      >
-        <Center>
-          <Button
-            onClick={handleBackNavigation}
-            variant="primary"
-            prefixIcon={<ArrowLeftIcon />}
-            size="large"
-          >
-            Go Back
-          </Button>
-        </Center>
+    <Stack
+      space={5}
+      style={{
+        marginBlock: 'auto',
+      }}
+    >
+      <Center>
+        <Button
+          onClick={handleBackNavigation}
+          variant="primary"
+          prefixIcon={<ArrowLeftIcon />}
+          size="medium"
+        >
+          Go Back
+        </Button>
+      </Center>
 
-        <Center>
-          <Stack
-            style={{
-              height: '50vh',
-              width: '50vw',
-            }}
-            space={2}
-          >
-            <Link to={data.url} target="_blank">
-              <Card
-                src={data.src.large2x}
-                id={data.id?.toString()}
-                style={{
-                  color: data.avg_color ?? vars.color.neutral[900],
-                  borderRadius: vars.radii['2xl'],
-                  position: 'relative',
-                  width: 'auto',
-                  height: '100%',
-                }}
-              />
-            </Link>
+      <Center>
+        <Stack
+          style={{
+            height: '50vh',
+            width: '50vw',
+          }}
+          space={2}
+        >
+          <Link to={data.url} target="_blank">
+            <Card
+              src={data.src.large2x}
+              id={data.id?.toString()}
+              style={{
+                background: data.avg_color ?? vars.color.neutral[900],
+                borderRadius: vars.radii['2xl'],
+                color: data.avg_color ?? vars.color.neutral[900],
+                height: '100%',
+                minHeight: '80vh',
+                minWidth: '25vw',
+                position: 'relative',
+                width: 'auto',
+              }}
+            />
+          </Link>
 
-            <Center>
-              <Author data={data} />
-            </Center>
-          </Stack>
-        </Center>
-      </Stack>
-    </Cover>
+          <Center>
+            <Author data={data} />
+          </Center>
+        </Stack>
+      </Center>
+    </Stack>
   )
 }
 

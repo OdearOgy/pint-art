@@ -7,7 +7,7 @@ export const ButtonStyles = style({
   borderRadius: vars.radii.md,
   minHeight: vars.space[8],
   cursor: 'pointer',
-  transition: 'background 0.2 ease',
+  transition: 'background 0.2s ease',
 
   selectors: {
     '&[disabled], &[data-loading="true"]': {
@@ -49,10 +49,10 @@ export const ButtonVariantStyles = styleVariants({
 
 export const ButtonSizeStyles = styleVariants({
   large: {
-    paddingInline: vars.space[4],
+    padding: `${vars.space[4]} ${vars.space[5]}`,
   },
   medium: {
-    paddingInline: vars.space[3],
+    padding: `${vars.space[2]} ${vars.space[3]}`,
   },
   small: {
     padding: `${vars.space[1]} ${vars.space[2]}`,
@@ -95,16 +95,4 @@ export const ButtonBodyStyles = style({
 
 export const ButtonLoadingIconStyles = style({
   animation: vars.animation.spin,
-})
-
-export const ButtonPrefixStyles = style({
-  width: vars.space[4],
-  height: vars.space[4],
-
-  selectors: {
-    [`.${ButtonSizeStyles['small']} &`]: {
-      width: vars.space[3],
-      height: vars.space[3],
-    },
-  },
 })

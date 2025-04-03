@@ -1,7 +1,16 @@
 import { Input as HeadlessInput } from '@headlessui/react'
 import type { FC } from 'react'
+import { Size } from '../../shared/types.ts'
+import Button from '../button/index.tsx'
+import XCircleIcon from '../icons/x-circle-icon.tsx'
 import Stack from '../layout/stack'
-import { FieldInputStyles, FieldLabelStyles, FieldStyles } from './index.css.ts'
+import {
+  FieldClearButtonStyles,
+  FieldInputStyles,
+  FieldLabelStyles,
+  FieldSizeStyles,
+  FieldStyles,
+} from './index.css.ts'
 
 interface InputProps {
   label?: string
@@ -9,21 +18,39 @@ interface InputProps {
   onBlur?: () => void
   onChange?: (s: string) => void
   placeholder?: string
-  value: unknown
+  value?: unknown
+  defaultValue?: string
+  size?: Size
+  onClear?: () => void
 }
 
-const Input: FC<InputProps> = ({ label, name, onBlur, onChange, placeholder, value }) => {
+const Input: FC<InputProps> = ({
+  label,
+  onBlur,
+  onChange,
+  onClear,
+  value,
+  size = 'medium',
+  ...props
+}) => {
+  const inputCls = `${FieldStyles} ${FieldSizeStyles[size]}`
+
   return (
-    <Stack className={FieldStyles}>
+    <Stack className={inputCls}>
       {label ? <label className={FieldLabelStyles}>{label}</label> : null}
       <HeadlessInput
-        name={name}
+        {...props}
+        className={FieldInputStyles}
         onChange={(e) => onChange?.(e.target.value)}
         onBlur={() => onBlur?.()}
-        className={FieldInputStyles}
         value={value?.toString()}
-        placeholder={placeholder}
       />
+
+      {(value || props.defaultValue) && (
+        <Button onClick={onClear} className={FieldClearButtonStyles} variant="danger" size={size}>
+          <XCircleIcon />
+        </Button>
+      )}
     </Stack>
   )
 }
