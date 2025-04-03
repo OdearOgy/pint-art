@@ -20,10 +20,10 @@
         - [*] Add details route
         - [*] Get data from the api
 
-- [ ] Implement search
-        - [ ] Create search functionality with pexels api
-        - [ ] Add debouncing upon typing 
-        - [ ] Update url with the search query
-        - [ ] Update grid view upon enter
+- [*] Implement search
+        - [*] Create search functionality with pexels api
+        - [*] Add debouncing upon typing 
+        - [*] Update url with the search query
+        - [*] Update grid view upon enter
 - [ ] Add Error boundaries
 - [ ] Provide pending UI for Suspense Fallback
