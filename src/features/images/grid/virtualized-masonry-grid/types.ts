@@ -12,7 +12,7 @@ export type ColumnItem = MasonryItem & {
 }
 
 export type LayoutConfiguration = {
-  gridColumns: number
+  columnCount: number
   gridContainerHeight: number
   scrollPosition: number
 }

@@ -44,10 +44,11 @@ const ImageDetails: FC<{
           }}
           space={2}
         >
-          <Link to={data.url} target="_blank">
+          <Link to={data.url} target="_blank" aria-label={data.alt ?? ''}>
             <Card
               src={data.src.large2x}
               id={data.id?.toString()}
+              alt={data.alt ?? ''}
               style={{
                 background: data.avg_color ?? vars.color.neutral[900],
                 borderRadius: vars.radii['2xl'],

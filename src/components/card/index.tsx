@@ -14,16 +14,15 @@ const Card: FC<CardProps> = ({ alt = '', id, imageRef, isPending, src, style }) 
   return (
     <div className={CardStyles} style={{ ...style }}>
       {isPending ? (
-        <div ref={imageRef} className={CardSkeletonStyles}>
-          loader
-        </div>
+        <div ref={imageRef} className={CardSkeletonStyles} />
       ) : (
         <img
           ref={imageRef}
           className={CardImageStyles}
-          src={src}
+          src={src + '&auto=format&format=webp'}
           alt={alt}
           data-id={id}
+          fetchPriority="high"
           loading="lazy"
         />
       )}

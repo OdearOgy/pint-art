@@ -19,30 +19,30 @@ export const ButtonStyles = style({
 
 export const ButtonVariantStyles = styleVariants({
   neutral: {
-    backgroundColor: vars.color.neutral[500],
-    borderColor: vars.color.neutral[600],
-    color: vars.color.neutral[50],
+    backgroundColor: vars.color.neutral[300],
+    borderColor: vars.color.neutral[400],
+    color: vars.color.neutral[950],
 
     '&:hover': {
-      backgroundColor: vars.color.neutral[600],
+      backgroundColor: vars.color.neutral[400],
     },
   },
   primary: {
-    backgroundColor: vars.color.primary[500],
-    borderColor: vars.color.primary[600],
-    color: vars.color.primary[50],
+    backgroundColor: vars.color.primary[300],
+    borderColor: vars.color.primary[400],
+    color: vars.color.primary[950],
 
     '&:hover': {
-      backgroundColor: vars.color.primary[600],
+      backgroundColor: vars.color.primary[400],
     },
   },
   danger: {
-    backgroundColor: vars.color.danger[500],
-    borderColor: vars.color.danger[600],
-    color: vars.color.danger[50],
+    backgroundColor: vars.color.danger[300],
+    borderColor: vars.color.danger[400],
+    color: vars.color.danger[950],
 
     '&:hover': {
-      backgroundColor: vars.color.danger[600],
+      backgroundColor: vars.color.danger[400],
     },
   },
 })

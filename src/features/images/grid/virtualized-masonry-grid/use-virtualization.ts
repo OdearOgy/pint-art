@@ -11,16 +11,17 @@ export const useVirtualization = (
   onScroll: () => void
 ): {
   visibleItems: ColumnItem[]
+  containerWidth: number
   longestColumn: number
 } => {
-  const { gridColumns, gridContainerHeight, scrollPosition } = useLayoutConfiguration(
+  const { columnCount, gridContainerHeight, scrollPosition } = useLayoutConfiguration(
     gridContainerRef,
     columnWidth,
     columnGap,
     onScroll
   )
 
-  const gridColumnHeight = new Array(gridColumns).fill(0)
+  const gridColumnHeight = new Array(columnCount).fill(0)
   const gridColumnItems: ColumnItem[] = []
 
   items.forEach((item) => {
@@ -44,6 +45,7 @@ export const useVirtualization = (
 
   return {
     visibleItems,
+    containerWidth: columnCount * columnWidth + (columnCount - 1) * columnGap,
     longestColumn,
   }
 }
