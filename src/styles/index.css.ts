@@ -21,7 +21,7 @@ globalStyle('*', {
 globalStyle('a', {
   color: vars.color.primary[600],
   textDecoration: 'none',
-  transition: 'color 0.2 ease',
+  transition: 'color 0.2s ease',
 })
 
 globalStyle('a:hover', {

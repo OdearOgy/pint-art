@@ -7,8 +7,8 @@ import { useVirtualization } from './use-virtualization'
 
 const VirtualizedMasonryGrid: FC<VirtualizedMasonryGridProps> = ({
   bufferRows = 2,
-  columnGap = 15,
-  columnWidth = 350,
+  columnGap = 16,
+  columnWidth = 320,
   items,
   loadMore,
 }) => {
@@ -56,7 +56,7 @@ const VirtualizedMasonryGrid: FC<VirtualizedMasonryGridProps> = ({
         const url = `/images/${item.id}`
 
         return (
-          // TODO: The api sometimes returns the same image, so we need to update the keys
+          // TODO: The api sometimes returns the same image(s), so the id can't be used as a key
           <Link to={url} key={item.id} viewTransition>
             <Card
               id={item.id}
