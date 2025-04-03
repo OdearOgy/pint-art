@@ -40,6 +40,7 @@ export const vars = createGlobalTheme(':root', {
       700: 'hsl(0, 65.46%, 48.82%)',
       800: 'hsl(0, 65.22%, 40.59%)',
       900: 'hsl(0, 65.1%, 29.22%)',
+      950: 'hsl(0, 62.6%, 24%)',
     } as const,
   } as const,
 

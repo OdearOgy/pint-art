@@ -14,9 +14,7 @@ const Card: FC<CardProps> = ({ alt = '', id, imageRef, isPending, src, style }) 
   return (
     <div className={CardStyles} style={{ ...style }}>
       {isPending ? (
-        <div ref={imageRef} className={CardSkeletonStyles}>
-          loader
-        </div>
+        <div ref={imageRef} className={CardSkeletonStyles} />
       ) : (
         <img
           ref={imageRef}
