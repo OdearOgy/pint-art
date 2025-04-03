@@ -1,4 +1,4 @@
 export const APP_ROUTES = {
-  HOME: '/',
+  IMAGES: '/',
   IMAGE_DETAILS: '/images/:id',
 } as const

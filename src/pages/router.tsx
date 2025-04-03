@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        path: APP_ROUTES.HOME,
+        path: APP_ROUTES.IMAGES,
         element: <ImagesOverviewPage />,
         loader: async ({ request }) => {
           const url = new URL(request.url)

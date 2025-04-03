@@ -16,7 +16,7 @@ const ImageDetails: FC<{
   const navigate = useNavigate()
 
   const handleBackNavigation = useCallback(() => {
-    navigate(APP_ROUTES.HOME)
+    navigate(APP_ROUTES.IMAGES)
   }, [navigate])
 
   return (
