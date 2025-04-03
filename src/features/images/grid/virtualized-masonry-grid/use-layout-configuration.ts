@@ -7,7 +7,7 @@ export const useLayoutConfiguration = (
   columnGap: number,
   onScroll: () => void
 ): LayoutConfiguration => {
-  const [gridColumns, setGridColumns] = useState(0)
+  const [columnCount, setColumnCount] = useState(0)
   const [scrollPosition, setScrollPosition] = useState(0)
   const [gridContainerHeight, setGridContainerHeight] = useState(globalThis.innerHeight)
 
@@ -15,11 +15,11 @@ export const useLayoutConfiguration = (
     if (gridContainerRef.current) {
       const width = gridContainerRef.current.offsetWidth
       const columns = Math.max(1, Math.floor(width / (columnWidth + columnGap)))
-      setGridColumns(columns)
+      setColumnCount(columns)
     }
 
     setGridContainerHeight(globalThis.innerHeight)
-  }, [gridContainerRef, columnWidth, columnGap, setGridColumns, setGridContainerHeight])
+  }, [gridContainerRef, columnWidth, columnGap, setColumnCount, setGridContainerHeight])
 
   const handleScroll = useCallback(() => {
     setScrollPosition(globalThis.scrollY)
@@ -39,7 +39,7 @@ export const useLayoutConfiguration = (
   })
 
   return {
-    gridColumns,
+    columnCount,
     scrollPosition,
     gridContainerHeight,
   }

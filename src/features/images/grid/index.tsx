@@ -5,7 +5,6 @@ import Button from '../../../components/button'
 import Cluster from '../../../components/layout/cluster/index.tsx'
 import type { PhotosDto } from '../../../shared/types.ts'
 import { getImages } from '../_api/index.ts'
-import { GridStyles } from './index.css.ts'
 import { toMasonryItemDto } from './mapper.ts'
 import VirtualizedMasonryGrid from './virtualized-masonry-grid'
 
@@ -53,7 +52,7 @@ const Images: FC<{
   }, [page, initialData, handleLoad])
 
   return (
-    <div className={GridStyles}>
+    <div>
       <VirtualizedMasonryGrid
         items={data?.map(toMasonryItemDto)}
         loadMore={handleLoadMoreTrigger}
